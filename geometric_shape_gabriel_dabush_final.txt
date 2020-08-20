@@ -1,0 +1,266 @@
+/******************************************
+>>>program: Creation of geomentric shapes
+>>>Created by: Gabriel dabush ID:201664422
+******************************************/
+#define _CRT_SECURE_NO_WORNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+
+void main()
+{
+	int num;
+	char answer;
+	while (1)
+	{
+		//main manu
+		printf("Please insert shape type:\n", &num);
+		printf("1> Rectangle\n2> Triangular\n3> Trapeze\n", &num);
+		scanf_s("%d", &num);
+
+		switch (num)
+		{
+		case 1://Rectangle 
+			num == 1;
+
+			int ff;
+			printf("Please enter if shape empty(1) or full(2):\n");
+			scanf_s("%d", &ff);
+			if (ff !=1 && ff !=2)
+			{
+				printf("Please choose 1 or 2\n");
+			}
+			else
+			{
+				if (ff == 1)//Empty Rectangle
+				{
+					char sym;
+					int i, j, length, width;
+					printf("Please choose a symbol to printing:\n");
+					scanf_s(" %c", &sym);
+					printf("Please enter Rectangle dimenntion(width,length):\n");
+					scanf_s("%d %d", &width, &length);
+					if (width <= 0 || length <= 0)
+					{
+						printf("Invalid option. Please try again\n\n");
+					}
+					else
+					{
+						for (i = 1; i <= length; i++)
+						{
+							for (j = 1; j <= width; j++)
+							{
+								if (i == 1 || i == length || j == 1 || j == width)
+								{
+									printf("%c", sym);
+								}
+								else
+								{
+									printf(" ");
+								}
+							}
+							printf("\n");//move to the next line
+						}
+					}
+					printf("\n");
+				}
+				if (ff == 2)//Full Rectangle
+				{
+					char sym;
+					int i, j, length, width;
+					printf("Please choose a symbol to printing:\n");
+					scanf_s(" %c", &sym);
+					printf("Please enter Rectangle dimenntion(width,length):\n");
+					scanf_s("%d %d", &width, &length);
+					if (width <= 0 || length <= 0)
+					{
+						printf("Invalid option. Please try again\n\n");
+					}
+					else
+					{
+						for (i = 1; i <= length; i++)
+						{
+							for (j = 1; j <= width; j++)
+							{
+								printf("%c", sym);
+							}
+							printf("\n");
+						}
+						printf("\n");
+					}
+				}
+			}
+			break;
+
+		case 2: //Triangular
+			num == 2;
+
+			char sym;
+			int fe;
+			printf("Please enter if shape empty(1) or full(2):\n");
+			scanf_s("%d", &fe);
+			if (fe != 1 && fe != 2)
+			{
+				printf("Please choose 1 or 2\n");
+			}
+			else
+			{
+				if (fe == 1) //Empty Triangular
+				{
+					int rows, i, j;
+					char sym;
+
+					printf("Please choose a symbol to printing: \n");
+					scanf_s(" %c", &sym);
+					printf("Please enter the number of rows:\n");
+					scanf_s("%d", &rows);
+					if (rows <= 0)
+					{
+						printf("Invalid option. Please try again\n\n");
+					}
+					else 
+					{
+						for (i = 1; i <= rows; i++)
+						{
+							for (j = i; j < rows; j++)//print traling space
+							{
+								printf(" ");
+							}
+							for (j = 1; j <= (2 * i - 1); j++)
+							{
+								if (i == rows || j == 1 || j == (2 * i - 1))
+								{
+									printf("%c", sym);
+								}
+								else
+								{
+									printf(" ");
+								}
+							}
+							printf("\n");//move to next line
+						}
+					}
+					printf("\n");
+				}
+				if (fe == 2)//Full triangular
+				{
+					int i, j, k, rows;
+					char sym;
+
+					printf("Please choose a symbol to printing: \n");
+					scanf_s(" %c", &sym);
+					printf("Please enter the number of rows:\n");
+					scanf_s("%d", &rows);
+					if (rows <= 0)
+					{
+						printf("Invalid option. Please try again\n\n");
+					}
+					else
+					{
+						for (i = 0; i < rows; i++)
+						{
+							for (j = rows; j > i; j--)
+							{
+								printf(" ");
+							}
+							for (k = 1; k <= i + 1; k++)
+							{
+								printf(" %c", sym);
+							}
+							printf("\n");
+						}
+					}
+					printf("\n");
+				}
+			}
+			break;
+		case 3://Trapeze
+			num == 3;
+			int ef;
+
+			printf("Please enter if shape empty(1) or full(2):\n");
+			scanf_s("%d", &ef);
+			if (ef != 1 && ef != 2)
+			{
+				printf("Please choose 1 or 2\n");
+			}
+			else
+			{
+				if (ef == 1)//Empty Trapeze
+				{
+					char sym;
+					int high, low, i, j, rows;
+
+					printf("Please choose a symbol to printing: \n");
+					scanf_s(" %c", &sym);
+					printf("please enter high and low prameters:\n");
+					scanf_s("%d %d", &high, &low);
+					if (high > low || low && high <= 0)
+					{
+						printf("low(base) need to be bigger then high and bigger then 0 !!\n\n\t**Please try again**\n\n");
+					}
+					else
+					{
+						rows = ((low - high) / 2);//high loop to define rows
+						for (i = 0; i <= rows; i++)
+						{
+							for (j = 0; j <= rows - i; j++)//trapeze left side
+								printf(" ");
+							if (i == 0 || i == rows)//check if it first & final rows
+							{        //astrice & first & final rows
+								for (j = 0; j < (high + 2 * i); j++)
+									printf("%c", sym);
+							}
+							else//not first & final rows
+							{
+								printf("%c", sym);
+								for (j = 0; j < ((high + 2 * i) - 2); j++)
+									printf(" ");
+								printf("%c", sym);
+								printf("\n");
+							}
+							printf("\n");
+						}
+					}
+				}
+				else if (ef == 2)//Full Trpeze
+				{
+					char sym;
+					int high, low, i, j, rows;
+
+					printf("Please choose a symbol to printing: \n");
+					scanf_s(" %c", &sym);
+					printf("please enter high and low prameters:\n");
+					scanf_s("%d %d", &high, &low);
+					if (high > low || low && high <= 0)
+					{
+						printf("!!low need to be bigger then high and bigger then 0 !!\n\n\t**Please try again**\n");
+					}
+					else
+					{
+						rows = ((low - high) / 2);
+						for (i = 0; i <= rows; i++)
+						{
+							for (j = 0; j <= rows - i; j++)
+								printf(" ");
+							for (j = 0; j < (high + 2 * i); j++)
+								printf("%c", sym);
+							printf("\n");
+						}
+						printf("\n");
+					}
+				}
+				else
+				{
+					printf("Please choose 1 or 2\n");
+				}
+			}
+			break;
+		}
+		printf("Do you want to print another shape(type Y or y for yes, N or n for (No) )\n");
+		scanf_s(" %c", &answer);
+		if (answer == 'N' || answer == 'n')
+			break;
+	}
+	printf("\tGoodbye!\n");
+	system("pause");
+}

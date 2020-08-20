@@ -1,0 +1,51 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+
+void main()
+{
+	int attendance;
+
+	printf("Please enter present of attendance: \n");
+	scanf("%d", &attendance);
+
+	if (attendance<80)
+	{
+		printf("Your final score in the course is 0 !!!\n");
+	}
+	else if (attendance >= 80) 
+	{
+		int test,sub_test;
+		printf("Please enter a score of test:\n");
+		scanf("%d", &test);
+		printf("Please enter a score sub-test:\n");
+		scanf("%d", &sub_test);
+		if (test>60)
+		{
+			float final_test;
+			final_test = 0.2 * sub_test + 0.8 * test;
+			printf("Your test's score is:%.2f\n",final_test);
+			if (final_test>60)
+			{
+				int home_work;
+				printf("Please enter a home work grade:\n");
+				scanf("%d", &home_work);
+				final_test = 0.9 * final_test + 0.1 * home_work;
+
+				printf("Your final score in course is:%.2f\n", final_test);
+			}
+			else
+			{
+				printf("your final score in the course is:%.2f",final_test);
+			}
+		}
+		else
+		{
+			printf("you are failed and your final score is:0");
+		}
+
+		
+	}
+
+
+}

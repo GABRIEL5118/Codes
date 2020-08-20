@@ -1,0 +1,152 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+void main()
+{
+	int num;
+	do
+	{
+		//main manu
+		printf("Please Choose A Program:\n", &num);
+		printf("1> Calculator\n2> Sum Digits\n3> Grades\n0> Quit\n", &num);
+		scanf("%d", &num);
+
+		switch (num)
+		{
+		case 1://program 1 calculator
+			num == 1;
+			printf("******My Calculator******\n");
+			//initial parameter's
+			char op;
+			float num1, num2, sum;
+
+			printf("Please Enter real number('X') Operator(+,-,*,/,^) and real number('Y'):\nPress Enter for result\n");
+			scanf("%f", &num1);
+			scanf("%c", &op);
+			scanf("%f", &num2);
+			//choose a operator and function
+			if (op == '+') {
+				printf("The result is: %.2f\n\n", num1 + num2);
+			}
+			else if (op == '-') {
+				printf("The result is: %.2f\n\n", num1 - num2);
+			}
+			else if (op == '*') {
+				printf("The result is: %.2f\n\n", num1 * num2);
+			}
+			else if (op == '/') {
+				printf("The result is: %.2f\n\n", num1 / num2);
+			}
+			else if (op == '^') {
+				if (num1 > 50 || num2 > 9)//Range power "^".
+					printf("******The number is to big!!!*****\n\n");
+				else
+					sum = pow(num1, num2);
+				printf("%f raised to the power of %f is %.2f\n\n\n", num1, num2, sum);
+			}
+			break;
+
+		case 2://program 2 sum of digit's
+			num == 2;
+			printf("*****SUM DIGITS*****\n");
+			//initial parameter's
+			int n1, n2, n3, r;
+			int all;
+			float g;
+			printf("please Enter a 3 digits number:\n");
+			scanf("%d", &r);
+			n1 = r / 100;//separate first number
+			n2 = r / 10 % 10;//separate second number
+			n3 = r % 10;//separate third number 
+			//make sure that is only 3 digits and calculate the sum of all digit
+			if (r <= 999) {
+				printf("\nFirst Digit = %d \nMiddle Digit = %d \nlast Digit = %d\n\n", n1, n2, n3);
+				all = n1 + n2 + n3;
+				printf("\nSum of All 3-Digits: %.2d\n\n", all);
+				g = (float)r /(float) all;
+				printf("Sum all/sum: %.2f\n\n", g);
+			}
+			else
+			{
+				printf("!!!!The input %.2d is not A 3-Digits Number!!!!\n\n", r);
+			}
+			break;
+
+		case 3:
+			num == 3;
+			printf("****Grades****\n");
+			//initiall parameter's
+			int test_grade, sub_test;
+			float final_grades;
+			int not_done;
+			float course_grade;
+
+			printf("Please Enter test grade:\n\n");
+			scanf("%d", &test_grade);
+			printf("Please Enter Sub-Test grade<-1 if not done with permission:\n\n");
+			scanf("%d", &sub_test, &not_done);
+			//calculate test+sub test
+			if (sub_test > 60) {
+				final_grades = 0.2 * sub_test + 0.8 * test_grade;
+				printf("Test final grade is:   %.2f\n", final_grades);
+			}
+			else {
+				final_grades = test_grade;
+				printf("The final grade is:   %d\n", test_grade);
+			}
+			//initiall parameter's
+			int h1, h2, h3, h4, h5;
+			float avr;
+
+			printf("Please Enter all 5 homework grades:\n\n");
+			scanf("%d %d %d %d %d\n\n", &h1, &h2, &h3, &h4, &h5);
+			//pick the biggest 4 from 5 grades and calculate average
+			if (h1 < h2 || h1 < h3 || h1 < h4 || h1 < h5) {
+				avr = (float)(h2 + h3 + h4 + h5) / 4;
+				printf("Average Home Work is: %.2f\n\n", avr);
+			}
+			else if (h2 < h1 || h2 < h3 || h2 < h4 || h2 < h5) {
+				avr = (float)(h1 + h3 + h4 + h5) / 4;
+				printf("Average Home Work is: %.2f\n\n", avr);
+			}
+			else if (h3 < h1 || h3 < h2 || h3 < h4 || h3 < h5) {
+				avr = (float)(h1 + h2 + h4 + h5) / 4;
+				printf("Average Home Work is: %.2f\n\n", avr);
+			}
+			else if (h4 < h1 || h4 < h2 || h4 < h3 || h1 < h5) {
+				avr = (float)(h1 + h2 + h3 + h5) / 4;
+				printf("Average Home Work is: %.2f\n\n", avr);
+			}
+			else if (h5 < h1 || h5 < h2 || h5 < h3 || h5 < h4) {
+				avr = (float)(h1 + h2 + h3 + h4) / 4;
+				printf("Average Home Work is: %.2f\n\n", avr);
+			}
+			else
+			{
+				printf("\n\n!!!Error!!!\n\n");
+			}
+			//calculte final score
+			if (final_grades > 60) {
+				course_grade = 0.75 * final_grades + 0.25 * avr;
+				printf("<<<< Final course grade is  %.2f >>>>\n\n", course_grade);
+			}
+			else
+			{
+				printf("your score is : %.2f>>>\n", final_grades);
+			}
+			break;
+		}
+	} while (num != 0);
+}
+
+
+
+
+
+
+
+
+
+

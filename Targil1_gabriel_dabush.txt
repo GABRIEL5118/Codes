@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+# include <stdio.h>
+# include <stdlib.h>
+void main()
+{
+	// Constant definition
+	int Attendance, Finalgrade;
+	printf("Please enter present of attendance:\n");
+	scanf("%d", &Attendance);
+	//first condition
+	if (Attendance < 80)
+		Finalgrade = 0;
+	else
+	{
+		//initiate prameters
+		int Exemgrade;
+		printf("Please enter exem grade:\n");
+		scanf("%d", &Exemgrade);
+		//second condition
+		if (Exemgrade < 60)
+			Finalgrade = Exemgrade;
+		else
+		{
+			//initiate prameters with parameter to continue
+			int Middlegrade, Oktogo;
+			double Homework;
+
+			printf("enter score middle exem:\n");
+			scanf("%d", &Middlegrade);
+
+			printf("Please enter present home work:\n");
+			scanf("%lf", &Homework);
+			//Calculating an middleexem and final tast grade 
+			if (Middlegrade > Exemgrade)
+				Oktogo = 0.2 * Middlegrade + 0.8 * Exemgrade;
+			else
+			{
+				Oktogo = Exemgrade;
+				//Calculating an home work and final grade
+				Finalgrade = 0.1 * Homework + 0.9 * Oktogo;
+			}
+		}
+		printf("your final grade is %d\n", Finalgrade);
+	}
