@@ -1,0 +1,44 @@
+/**********************************
+*>>program: One dimensional array *
+*>>Created by: gabriel dabush     *
+*>>ID:201664422                   *                                
+**********************************/
+#define _CRT_SECURE_NO_WORNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+#define ID 5
+
+void main()
+{
+    int i, j, arrA[ID] = { 0 }, arrB[ID] = { 0 };
+        
+        printf("Please enter id number class A: ");
+    for (i = 0; i < ID; i++) {
+        scanf_s("%d", &arrA[i]);
+    }
+        printf("Please enter id number class B: ");
+    for (j = 0; j < ID; j++) {
+        scanf_s("%d", &arrB[j]);
+    }
+    printf("\n");
+    printf("The id of student in class A are: \n", &arrA[i]);
+    for (i = 0; i < ID; i++) {
+        printf("student-%d", arrA[i]);
+        printf("\n");
+    }
+    printf("\n");
+    printf("The id of student in class B are: \n", &arrB[j]);
+    for (j = 0; j < ID; j++) {
+        printf("student-%d", arrB[j]);
+        printf("\n");
+    }
+    printf("\n");
+    for (i = 0; i < ID; i++)
+    for (j = 0; j < ID; j++)
+    if (arrA[i]==arrB[j])
+    {
+        printf("Student in 2 class is: %d\n",arrA[i]);
+    }
+    printf("\n");
+    system("pause");
+}

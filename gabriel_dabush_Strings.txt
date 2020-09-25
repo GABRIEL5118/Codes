@@ -1,0 +1,23 @@
+/**********************************
+*>>program: Strings               *
+*>>Created by: gabriel dabush     *
+*>>ID:201664422                   *
+**********************************/
+#define _CRT_SECURE_NO_WORNINGS 
+#include<stdio.h>
+#include<stdlib.h>
+#define CH 5
+
+void main()
+{
+	char arr[CH], i;
+
+	printf("Please enter A 5-letter word: ", CH);
+	for (i = 0; i < CH; i++)
+		scanf_s("%c", &arr[i]);
+	printf("The word from end to start is: \n");
+	for (i = CH - 1; i >= 0; i--)
+		printf("%c ", arr[i]);
+	printf("\n");
+	return 0;
+}
